@@ -1,0 +1,227 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32010F50-DB6D-4F93-9556-BD895BB9AC4B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Libellus</RootNamespace>
+    <AssemblyName>Libellus</AssemblyName>
+    <ApplicationIcon>..\Books.ico</ApplicationIcon>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <StartAction>Project</StartAction>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\..\lib\System.Data.SQLite.DLL</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="DataAccess\BaseDAO.cs" />
+    <Compile Include="DataAccess\BaseInfoDAO.cs" />
+    <Compile Include="DataAccess\BookDAO.cs" />
+    <Compile Include="DataAccess\SQL.cs" />
+    <Compile Include="Domain\BaseDO.cs" />
+    <Compile Include="Domain\BaseInfo.cs" />
+    <Compile Include="Domain\Book.cs" />
+    <Compile Include="Domain\Person.cs" />
+    <Compile Include="Domain\Subject.cs" />
+    <Compile Include="Printing\PrintEngine.cs" />
+    <Compile Include="UI\Controls\BookGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\BookGrid.Designer.cs">
+      <DependentUpon>BookGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\BookSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\BookSearch.Designer.cs">
+      <DependentUpon>BookSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\BatchAddByISBNForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\BatchAddByISBNForm.Designer.cs">
+      <DependentUpon>BatchAddByISBNForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\ColumnSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\ColumnSelector.Designer.cs">
+      <DependentUpon>ColumnSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\ExceptionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\ExceptionWindow.Designer.cs">
+      <DependentUpon>ExceptionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\LoanBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\LoanBookForm.Designer.cs">
+      <DependentUpon>LoanBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\ViewBooksForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\ViewBooksForm.Designer.cs">
+      <DependentUpon>ViewBooksForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\DDItem.cs" />
+    <Compile Include="Utilities\Log.cs" />
+    <Compile Include="XML\Attribute.cs" />
+    <Compile Include="XML\Element.cs" />
+    <Compile Include="Program.cs" />
+    <EmbeddedResource Include="UI\Controls\BookGrid.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BookGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\BookSearch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BookSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\AddBookForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AddBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\BatchAddByISBNForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BatchAddByISBNForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\ColumnSelector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ColumnSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\CustomAboutBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CustomAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\BaseForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\ExceptionWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ExceptionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\LoanBookForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LoanBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\NewDBForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewDBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\PasswordPrompt.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PasswordPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\ViewBooksForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ViewBooksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\ViewDatabasesForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ViewDatabasesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="emdata" />
+    <Compile Include="UI\Forms\AddBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\AddBookForm.Designer.cs">
+      <DependentUpon>AddBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\CustomAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\CustomAboutBox.Designer.cs">
+      <DependentUpon>CustomAboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\NewDBForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\NewDBForm.Designer.cs">
+      <DependentUpon>NewDBForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\PasswordPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\PasswordPrompt.Designer.cs">
+      <DependentUpon>PasswordPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\ViewDatabasesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\ViewDatabasesForm.Designer.cs">
+      <DependentUpon>ViewDatabasesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Utilities\DBConstants.cs" />
+    <Compile Include="Utilities\ErrorMessages.cs" />
+    <Compile Include="Utilities\ExceptionHandler.cs" />
+    <Compile Include="Utilities\Messages.cs" />
+    <Compile Include="Utilities\UIUtils.cs" />
+    <Compile Include="Utilities\Utils.cs" />
+    <Compile Include="XML\XMLParser.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy ..\..\emdata .%3b◙♪copy ..\..\..\..\scripts\db10_to_12.sql .%3b◙♪copy ..\..\..\..\scripts\db11_to_12.sql .</PostBuildEvent>
+  </PropertyGroup>
+</Project>

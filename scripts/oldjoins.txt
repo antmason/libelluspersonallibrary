@@ -1,0 +1,5 @@
+create view book_data as select b.*,p.publisher_info,l.loan_to,l.date_loaned,pe.last_name,pe.first_name,s.subject from book b 
+left outer join publisher p on p.id = b.publisher_id 
+left outer join loan_book l on l.book_id = b.id 
+left outer join subject s,book_subject bs on s.id = bs.subject_id AND bs.book_id = b.id
+left outer join person pe,book_author ba on pe.id = ba.person_id AND ba.book_id = b.id ;
