@@ -1,0 +1,1 @@
+Libellus Personal Library is a windows application written in C# that uses web services to download and populate book data based on a books ISBN.
